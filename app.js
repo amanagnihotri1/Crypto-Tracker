@@ -7,16 +7,13 @@ import ejs from "ejs";
 import fetch from "node-fetch";
 const app=express();
 app.set("view engine","ejs");
-mongoose.connect(process.env.CONNECT_STRING,(err)=>
+mongoose.connect(process.env.CONNECT_STRING,{useNewUrlParser: true,useUnifiedTopology:true}).then(()=>
 {
-    if(err)
-    {
-        console.log(err);
-    }
-    else
-    {
-        console.log("database connected successfully");
-    }
+    console.log("database connected succefully");
+}).catch(err)
+{
+    console.log(err);
+}
 });
 app.use(express.static("views"));
 const url="https://api.wazirx.com/sapi/v1/tickers/24hr";
