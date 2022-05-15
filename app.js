@@ -7,7 +7,7 @@ import ejs from "ejs";
 import fetch from "node-fetch";
 const app=express();
 app.set("view engine","ejs");
-mongoose.connect(process.env.CONNECT_STRING,{useNewUrlParser: true,useUnifiedTopology:true}).then(()=>
+mongoose.connect("mongodb+srv://Aman:Nahipata1@cluster0.kwlnx.mongodb.net/cryptodb?retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>
  console.log("connected successfully")   
 ).catch(err=> console.log(err)
 )
