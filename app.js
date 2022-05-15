@@ -8,13 +8,9 @@ import fetch from "node-fetch";
 const app=express();
 app.set("view engine","ejs");
 mongoose.connect(process.env.CONNECT_STRING,{useNewUrlParser: true,useUnifiedTopology:true}).then(()=>
-{
-    console.log("database connected succefully");
-}).catch(err)
-{
-    console.log(err);
-}
-});
+ console.log("connected successfully")   
+).catch(err=> console.log(err)
+)
 app.use(express.static("views"));
 const url="https://api.wazirx.com/sapi/v1/tickers/24hr";
 app.get("/",async(req,res)=>
